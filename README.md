@@ -1,7 +1,7 @@
 # Hi there 👋 Welcome to Jonathan's profile 🎉
 
-![Metrics](/metrics_left.svg)
-![Metrics](/metrics_right.svg)
+![Metrics](/metrics_header.svg)
+![Metrics](/metrics_achievements.svg)
 
 ## Languages and Tools
 <p align="left"> 
