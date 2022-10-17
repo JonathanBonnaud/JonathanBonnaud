@@ -12,7 +12,7 @@ jobs:
       - uses: lowlighter/metrics@latest
         with:
           token: ${{ secrets.METRICS_TOKEN }}
-          filename: metrics_left.svg
+          filename: metrics_header.svg
           user: JonathanBonnaud
           template: classic
           base: header  #, repositories
@@ -30,7 +30,7 @@ jobs:
       - name: Contributors with contributions count
         uses: lowlighter/metrics@latest
         with:
-          filename: metrics.plugin.contributors.contributions.svg
+          filename: metrics_contributions.svg
           token: ${{ secrets.METRICS_TOKEN }}
           base: ""
           template: repository
@@ -40,7 +40,7 @@ jobs:
       - uses: lowlighter/metrics@latest
         with:
           token: ${{ secrets.METRICS_TOKEN }}
-          filename: metrics_right.svg
+          filename: metrics_achievements.svg
           user: JonathanBonnaud
           template: classic
           base: ""
