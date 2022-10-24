@@ -1,7 +1,10 @@
 # Hi there 👋 Welcome to Jonathan's profile 🎉
 
-![Metrics](/metrics_header.svg)
-![Metrics](/metrics_achievements.svg)
+<div align="center">  
+ 
+[![Metrics](/github_metrics.svg)](#)
+ 
+ </div>
 
 ## Languages and Tools
 <p align="left"> 
