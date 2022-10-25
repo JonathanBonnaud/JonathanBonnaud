@@ -21,12 +21,34 @@ jobs:
           base: header  #, repositories
           config_display: large
           
-          # Achievements plugin
-          plugin_achievements: yes
-          plugin_achievements_threshold: C       # Display achievements with rank B or higher
-          plugin_achievements_secrets: yes       # Display unlocked secrets achievements
-          plugin_achievements_limit: 0           # Display all unlocked achievement matching threshold and secrets params
-          plugin_achievements_display: detailed
+      - name: Update achievements.svg
+        if: always()
+        uses: lowlighter/metrics@main
+        with:
+          # Common config
+          user: JonathanBonnaud
+          token: ${{ secrets.METRICS_TOKEN }}
+          committer_branch: main
+          committer_message: Update ${filename} - [GitHub Action]
+
+          # Output file
+          template: classic
+          config_display: large
+          filename: achievements.svg
+          config_output: svg
+
+          # Output info
+          base: ""
+          base_indepth: true
+
+          plugin_achievements: true  # Show achievements
+          plugin_achievements_threshold: C  # Show all unlocked achievements
+          plugin_achievements_secrets: true  # Include secret achievements
+          plugin_achievements_limit: 0  # All that can fit
+          plugin_achievements_display: compact  # Compact layout
+          extras_css: |  # Make it prettier
+            h2, h3 { margin: 0px; opacity: 0%; width: 0px; height: 0px; }
+            
       - name: Update languages.svg
         if: always()
         uses: lowlighter/metrics@main
@@ -64,6 +86,7 @@ jobs:
             .row { justify-content: center; }
             .row section { flex: unset !important; width: 232px }
             .field svg { margin: 0px 8px 0 -4px; }
+            
       - name: Update notable.svg
         if: always()
         uses: lowlighter/metrics@main
