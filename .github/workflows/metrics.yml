@@ -14,109 +14,39 @@ jobs:
         uses: lowlighter/metrics@latest
         with:
           # Common config
+          user: JonathanBonnaud
           token: ${{ secrets.METRICS_TOKEN }}
+          
+          template: classic
           filename: github_metrics.svg
-          user: JonathanBonnaud
-          template: classic
+          config_display: large
           base: header  #, repositories
-          config_display: large
+          base_indepth: yes
+          config_order: base.header, languages, notable, topics
           
-      - name: Update achievements.svg
-        if: always()
-        uses: lowlighter/metrics@main
-        with:
-          # Common config
-          user: JonathanBonnaud
-          token: ${{ secrets.METRICS_TOKEN }}
-          committer_branch: main
-          committer_message: Update ${filename} - [GitHub Action]
-
-          # Output file
-          template: classic
-          config_display: large
-          filename: achievements.svg
-          config_output: svg
-
-          # Output info
-          base: ""
-          base_indepth: true
-
-          plugin_achievements: true  # Show achievements
-          plugin_achievements_threshold: C  # Show all unlocked achievements
-          plugin_achievements_secrets: true  # Include secret achievements
-          plugin_achievements_limit: 0  # All that can fit
-          plugin_achievements_display: compact  # Compact layout
-          extras_css: |  # Make it prettier
-            h2, h3 { margin: 0px; opacity: 0%; width: 0px; height: 0px; }
-            
-      - name: Update languages.svg
-        if: always()
-        uses: lowlighter/metrics@main
-        with:
-          # Common config
-          user: JonathanBonnaud
-          token: ${{ secrets.METRICS_TOKEN }}
-          committer_branch: main
-          committer_message: Update ${filename} - [GitHub Action]
-
-          # Output file
-          template: classic
-          config_display: large
-          filename: languages.svg
-          config_output: svg
-
-          # Output info
-          base: ""
-          base_indepth: true
-      
-          plugin_languages_ignored: >-
-            html, css, tex, less, dockerfile, makefile, qmake, lex, cmake, shell,
-            gnuplot
-          
-          plugin_languages: true  # Show language bar
+          # Plugin languages
+          plugin_languages: yes  # Show language bar
           plugin_languages_sections: most-used, recently-used
           plugin_languages_categories: data, markup, programming, prose  # All categories
           plugin_languages_details: lines, bytes-size, percentage  # Show percentages, with 2 decimals of precision
           plugin_languages_limit: 8  # Max
           plugin_languages_threshold: 0%  # Don't filter
           plugin_languages_skipped: JonathanBonnaud/jonathanbonnaud.github.io
-          extras_css: |  # Make it prettier
-            * { font-size: 16px; }
-            h2, h3 { margin: 0px; opacity: 0%; width: 0px; height: 0px; }
-            .row { justify-content: center; }
-            .row section { flex: unset !important; width: 232px }
-            .field svg { margin: 0px 8px 0 -4px; }
-            
-      - name: Update notable.svg
-        if: always()
-        uses: lowlighter/metrics@main
-        with:
-          # Common config
-          user: JonathanBonnaud
-          token: ${{ secrets.METRICS_TOKEN }}
-          committer_branch: main
-          committer_message: Update ${filename} - [GitHub Action]
-#           config_timezone: Etc/UTC
-
-          # Output file
-          template: classic
-          config_display: large
-          filename: notable.svg
-          config_output: svg
-          plugins_errors_fatal: true
-          repositories_batch: 5
-          repositories_forks: true
-          repositories_affiliations: owner, collaborator, organization_member
-#           debug: true  # Investigate why @wikimedia/pywikibot is missing
-
-          # Output info
-          base: ""
-          base_indepth: true
-          repositories_skipped: JonathanBonnaud/jonathanbonnaud.github.io
-
-          plugin_notable: true
-          plugin_notable_repositories: true
-          plugin_notable_from: all
-#           plugin_notable_filter: stars:>50
-          plugin_notable_indepth: true
-          plugin_notable_types: commit, issue, pull_request
+          plugin_languages_ignored: >-
+            html, css, tex, less, dockerfile, makefile, qmake, lex, cmake, shell,
+            gnuplot
+          plugin_languages_indepth: yes
+          
+          # Plugin achievements
+          plugin_achievements: true  # Show achievements
+          plugin_achievements_threshold: C  # Show all unlocked achievements
+          plugin_achievements_secrets: true  # Include secret achievements
+          plugin_achievements_limit: 0  # All that can fit
+          plugin_achievements_display: compact  # Compact layout
+          
+          
+  
+          plugin_topics: yes
+          plugin_topics_limit: 0
+          plugin_topics_mode: icons
+          plugin_notable: yes
