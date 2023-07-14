@@ -44,4 +44,4 @@ jobs:
 #           plugin_achievements_limit: 0  # All that can fit
 #           plugin_achievements_display: compact  # Compact layout
         
-          plugin_notable: yes
+#           plugin_notable: yes
