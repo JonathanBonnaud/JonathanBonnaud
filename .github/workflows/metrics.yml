@@ -38,10 +38,10 @@ jobs:
 #           plugin_languages_indepth: yes
           
           # Plugin achievements
-          plugin_achievements: true  # Show achievements
-          plugin_achievements_threshold: C  # Show all unlocked achievements
-          plugin_achievements_secrets: true  # Include secret achievements
-          plugin_achievements_limit: 0  # All that can fit
-          plugin_achievements_display: compact  # Compact layout
+#           plugin_achievements: true  # Show achievements
+#           plugin_achievements_threshold: C  # Show all unlocked achievements
+#           plugin_achievements_secrets: true  # Include secret achievements
+#           plugin_achievements_limit: 0  # All that can fit
+#           plugin_achievements_display: compact  # Compact layout
         
           plugin_notable: yes
